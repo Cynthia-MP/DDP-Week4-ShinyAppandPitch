@@ -17,15 +17,9 @@ data(Auto, package = "ISLR")
 
 ## Project Overview of the Auto Analysis App
 
-The purpose of this project is to showcase the functionality of Shiny and the ability to make interactive presentations that will allow the user to reproduce original analysis while exploring data sets through a web based user interface. 
+The purpose of this project is to showcase the functionality of Shiny and the ability to make interactive presentations that will allow the user to reproduce original analysis while exploring data sets through a web based user interface. The Auto Analysis App allows the user to manipulate an interactive plot of Auto data to better understand the correlations between the 6 automotive variables including  mpg,cylinders,horsepower,weight,year,and acceleration. The output for this application is a multifaceted analysis based on the user's selected inputs. 
 
-The Auto Analysis App allows the user to manipulate an interactive plot of Auto data to better understand the correlations between the 6 automotive variables including mpg,cylinders,horsepower,weight,year,and acceleration. The output for this application is a multifaceted analysis based on the user's selected inputs. 
-
-## Data Source
-
-This data set was taken from the StatLib library which is maintained at Carnegie Mellon University. The data set was used in the 1983 American Statistical Association Exposition and included in the book "An Introduction to Statistical Learning" (James, Witten, Hastie and Tibshirani, 2013).  
-
-The Auto Data Set is a data frame from the ISLR package with 392 observations on the following 9 variables. *For simplicity, only 6 of the 9 factors were used for this current application including mpg,cylinders,horsepower,weight,year,and acceleration.* 
+This data set was taken from the StatLib library which is maintained at Carnegie Mellon University. The Auto Data Set is a data frame from the ISLR package with 392 observations on the following 9 variables. *For simplicity, only 6 of the 9 factors were used for this current application including mpg,cylinders,horsepower,weight,year,and acceleration.* 
 
  - mpg-miles per gallon
  - cylinders-Number of cylinders between 4 and 8
@@ -38,16 +32,6 @@ The Auto Data Set is a data frame from the ISLR package with 392 observations on
  - name-Vehicle name
 
 
- - *References*
-James, G., Witten, D., Hastie, T., and Tibshirani, R. (2013) An Introduction to Statistical Learning with applications in R, www.StatLearning.com, Springer-Verlag, New York
-
-## Summary of the Auto Data set
-
-```{r cars, eval=FALSE, include=FALSE}
-summary(Auto)
-```
-
-
 ## Correlation analysis for Selected Variables
 
 From the plot, it appears that the strongest correlations are between mpg, cylinders, horsepower and weight. Therefore, these variables were used as the defaults for the application inputs. 
@@ -57,11 +41,16 @@ correlations = cor(Auto[,c("mpg","cylinders","horsepower","weight","year","accel
 corrplot(correlations)
 ```
 
-## Shiny Interactive Application for Auto Analysis 
+## Shiny Interactive Application Overview 
 
 This application is initially displayed using the previously mentioned default inputs. You may change any of the variables used by selecting the drop-down arrow next to each input choices. You may also change the sample size and the height of the plot by moving the slider buttons. *Please note that some input choices may take longer to render updates to the resulting plot.* 
 
 The application was developed using the plotly package which also allows the you use the Plotly controls, located at the top of the plot, to zoom in on certain points on the plot as well as being able to see the details when hovering over specific points on the plot. 
+
+The Shiny App Code and README file can be found here. 
+https://github.com/Cynthia-MP/DDP-Week4-ShinyAppandPitch/tree/master/DDPWk4ShinyApp
+
+## Shiny Interactive Application for Auto Analysis 
 
 Scroll down to be able to see all of the application controls and inputs. 
 ```{r shiny_app}
