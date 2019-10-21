@@ -1,0 +1,123 @@
+---
+title: "DDP - Week 4 - Course Project - Auto Analysis App Using Shiny"
+author: "Cynthia McGowan Poole"
+date: "10/16/2019"
+output: slidy_presentation
+runtime: shiny
+css: complex-css.css
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(ISLR)
+library(corrplot)
+library(coefplot)
+data(Auto, package = "ISLR")
+```
+
+## Project Overview of the Auto Analysis App
+
+The purpose of this project is to showcase the functionality of Shiny and the ability to make interactive presentations that will allow the user to reproduce original analysis while exploring data sets through a web based user interface. 
+
+The Auto Analysis App allows the user to maniplate an interactive plot of Auto data to better understand the corralations between the 6 automotive variables including mpg,cylinders,horsepower,weight,year,and acceleration. The output for this application is a multifaceted analysis based on the user's selected inputs. 
+
+## Data Source
+
+This dataset was taken from the StatLib library which is maintained at Carnegie Mellon University. The dataset was used in the 1983 American Statistical Association Exposition and included in the book "An Introduction to Statistical Learning" (James, Witten, Hastie and Tibshirani, 2013).  
+
+The Auto Data Set is a data frame from the ISLR package with 392 observations on the following 9 variables. *For simplicity, only 6 of the 9 factors were used for this current application including mpg,cylinders,horsepower,weight,year,and acceleration.* 
+
+ - mpg-miles per gallon
+ - cylinders-Number of cylinders between 4 and 8
+ - displacement-Engine displacement (cu. inches)
+ - horsepower-Engine horsepower
+ - weight-Vehicle weight (lbs.)
+ - acceleration-Time to accelerate from 0 to 60 mph (sec.)
+ - year -Model year (modulo 100)
+ - origin-Origin of car (1. American, 2. European, 3. Japanese)
+ - name-Vehicle name
+
+
+ - *References*
+James, G., Witten, D., Hastie, T., and Tibshirani, R. (2013) An Introduction to Statistical Learning with applications in R, www.StatLearning.com, Springer-Verlag, New York
+
+## The Auto Analysis Application Code
+
+```{r cars, eval=FALSE, include=TRUE}
+ui.R
+library(shiny)
+library(plotly)
+library(ISLR)
+
+data(Auto, package = "ISLR")
+nms <- c("mpg","cylinders","horsepower","weight","year","acceleration")
+
+shinyUI(
+    fluidPage(
+
+    # Application title
+    headerPanel("The Auto Analysis App"),
+    sidebarPanel(
+        sliderInput('sampleSize', 'Sample Size', min = 1, max = nrow(Auto),
+                    value = 200, step = 10, round = 0),
+        selectInput('x', 'X', choices = nms, selected = "weight"),
+        selectInput('y', 'Y', choices = nms, selected = "horsepower"),
+        selectInput('color', 'Color', choices = nms, selected = "mpg"),
+        
+        selectInput('facet_row', 'Facet Row', c(None = '.', nms), selected = "cylinders"),
+        selectInput('facet_col', 'Facet Column', c(None = '.', nms)),
+        sliderInput('plotHeight', 'Height of plot (in pixels)', 
+                    min = 100, max = 2000, value = 1000)
+    ),
+    mainPanel(
+        plotlyOutput('trendPlot', height = "900px")
+    )
+))
+
+server.R
+shinyServer(function(input, output) {
+    
+    #add reactive data information. Dataset = built in stars data
+    dataset <- reactive({
+        Auto[sample(nrow(Auto), input$sampleSize),]
+    })
+    
+    output$trendPlot <- renderPlotly({
+        
+        # build graph with ggplot syntax
+        p <- ggplot(dataset(), aes_string(x = input$x, y = input$y, color = input$color)) + 
+            geom_point()
+        
+        # if at least one facet column/row is specified, add it
+        facets <- paste(input$facet_row, '~', input$facet_col)
+        if (facets != '. ~ .') p <- p + facet_grid(facets)
+        
+        ggplotly(p) %>% 
+            layout(height = input$plotHeight, autosize=TRUE)
+        
+    })
+    
+})
+```
+
+
+## Correlation analysis for Selected Variables
+
+From the plot, it appears that the stongest correlations are between mpg, cylinders, horsepower and weight. Therefore, these variables were used as the defaults for the application inputs. 
+
+```{r mpg}
+correlations = cor(Auto[,c("mpg","cylinders","horsepower","weight","year","acceleration")])
+corrplot(correlations)
+```
+
+## Shiny Interactive Application for Auto Analysis 
+
+This application is initially displayed using the previously mentioned default inputs. You may change any of the variables used by selecting the drop-down arrow next to each input choices. You may also change the sample size and the height of the plot by moving the slider buttons. *Please note that some input choices may take longer to render updates to the resulting plot.* 
+
+The application was developed using the plotly package which also allows the you use the Plotly controls, located at the top of the plot, to zoom in on certain points on the plot as well as being able to see the details when hovering over specific points on the plot. 
+
+Scroll down to be able to see all of the application controls and inputs. 
+```{r shiny_app}
+library(shiny)
+shinyAppDir(appDir = "DDPWk4ShinyApp", options = list(height = "700px"))
+```
