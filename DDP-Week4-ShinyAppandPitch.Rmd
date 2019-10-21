@@ -3,12 +3,8 @@ title: "DDP - Week 4 - Course Project - Auto Analysis App Using Shiny"
 author: "Cynthia McGowan Poole"
 date: "10/16/2019"
 output: slidy_presentation
-resource_files:
-- DDPWk4ShinyApp/server.R
-- DDPWk4ShinyApp/ui.R
-- README.txt
-runtime: shiny
 css: complex-css.css
+runtime: shiny
 ---
 
 ```{r setup, include=FALSE}
@@ -16,6 +12,7 @@ knitr::opts_chunk$set(echo = FALSE)
 library(ISLR)
 library(corrplot)
 library(coefplot)
+library(markdown)
 data(Auto, package = "ISLR")
 ```
 
