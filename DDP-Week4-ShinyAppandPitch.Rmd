@@ -19,11 +19,11 @@ data(Auto, package = "ISLR")
 
 The purpose of this project is to showcase the functionality of Shiny and the ability to make interactive presentations that will allow the user to reproduce original analysis while exploring data sets through a web based user interface. 
 
-The Auto Analysis App allows the user to maniplate an interactive plot of Auto data to better understand the corralations between the 6 automotive variables including mpg,cylinders,horsepower,weight,year,and acceleration. The output for this application is a multifaceted analysis based on the user's selected inputs. 
+The Auto Analysis App allows the user to manipulate an interactive plot of Auto data to better understand the correlations between the 6 automotive variables including mpg,cylinders,horsepower,weight,year,and acceleration. The output for this application is a multifaceted analysis based on the user's selected inputs. 
 
 ## Data Source
 
-This dataset was taken from the StatLib library which is maintained at Carnegie Mellon University. The dataset was used in the 1983 American Statistical Association Exposition and included in the book "An Introduction to Statistical Learning" (James, Witten, Hastie and Tibshirani, 2013).  
+This data set was taken from the StatLib library which is maintained at Carnegie Mellon University. The data set was used in the 1983 American Statistical Association Exposition and included in the book "An Introduction to Statistical Learning" (James, Witten, Hastie and Tibshirani, 2013).  
 
 The Auto Data Set is a data frame from the ISLR package with 392 observations on the following 9 variables. *For simplicity, only 6 of the 9 factors were used for this current application including mpg,cylinders,horsepower,weight,year,and acceleration.* 
 
@@ -41,7 +41,7 @@ The Auto Data Set is a data frame from the ISLR package with 392 observations on
  - *References*
 James, G., Witten, D., Hastie, T., and Tibshirani, R. (2013) An Introduction to Statistical Learning with applications in R, www.StatLearning.com, Springer-Verlag, New York
 
-## Summary of the Auto Dataset
+## Summary of the Auto Data set
 
 ```{r cars, eval=FALSE, include=FALSE}
 summary(Auto)
@@ -50,7 +50,7 @@ summary(Auto)
 
 ## Correlation analysis for Selected Variables
 
-From the plot, it appears that the stongest correlations are between mpg, cylinders, horsepower and weight. Therefore, these variables were used as the defaults for the application inputs. 
+From the plot, it appears that the strongest correlations are between mpg, cylinders, horsepower and weight. Therefore, these variables were used as the defaults for the application inputs. 
 
 ```{r mpg}
 correlations = cor(Auto[,c("mpg","cylinders","horsepower","weight","year","acceleration")])
