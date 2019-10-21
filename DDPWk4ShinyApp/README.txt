@@ -8,7 +8,7 @@ The app developed for the first part of the assignment is avalilable at: https:/
 The presentation is available at: https://cdmcgowanpoole.shinyapps.io/DDP-Week4-ShinyAppandPitch/_w_c5504237/_w_3c365a78/#(5)
 
 
-Files for the presentation are avalilable on the GitHub: 
+Files for the presentation are avalilable on the GitHub: https://github.com/Cynthia-MP/DDP-Week4-ShinyAppandPitch
 
 
 

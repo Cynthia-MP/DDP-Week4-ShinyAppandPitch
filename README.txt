@@ -5,6 +5,12 @@ This application will initially display default inputs, however, the user may ch
 
 The application was developed using the plotly package which also allows the you use the Plotly controls, located at the top of the plot, to zoom in on certain points on the plot as well as being able to see the details when hovering over specific points on the plot. 
 
+The app developed for the first part of the assignment is avalilable at: https://cdmcgowanpoole.shinyapps.io/DDPWk4ShinyApp/
+
+The presentation is available at: https://cdmcgowanpoole.shinyapps.io/DDP-Week4-ShinyAppandPitch/_w_c5504237/_w_3c365a78/#(5)
+
+Files for the presentation are avalilable on the GitHub: https://github.com/Cynthia-MP/DDP-Week4-ShinyAppandPitch
+
 The user should scroll down to be able to see all of the application controls and inputs. 
 
 DATA SOUURCE
