@@ -3,6 +3,15 @@ The Auto Analysis App, created for Week 4 Course Project in the Developing Data 
 
 This application will initially display default inputs, however, the user may change any of the variables by selecting the drop-down arrow next to each input choices. The user may also change the sample size and the height of the plot by moving the slider buttons. Please note that some input choices may take longer to render updates to the resulting plot. 
 
+The app developed for the first part of the assignment is avalilable at: https://cdmcgowanpoole.shinyapps.io/DDPWk4ShinyApp/
+
+The presentation is available at: https://cdmcgowanpoole.shinyapps.io/DDP-Week4-ShinyAppandPitch/_w_c5504237/_w_3c365a78/#(5)
+
+
+Files for the presentation are avalilable on the GitHub: 
+
+
+
 The application was developed using the plotly package which also allows the you use the Plotly controls, located at the top of the plot, to zoom in on certain points on the plot as well as being able to see the details when hovering over specific points on the plot. 
 
 The user should scroll down to be able to see all of the application controls and inputs. 
@@ -25,6 +34,5 @@ The Auto Data Set is a data frame from the ISLR package with 392 observations on
 
  - *References*
 James, G., Witten, D., Hastie, T., and Tibshirani, R. (2013) An Introduction to Statistical Learning with applications in R, www.StatLearning.com, Springer-Verlag, New York
-
 
 

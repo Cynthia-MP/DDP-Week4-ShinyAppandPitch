@@ -1,0 +1,13 @@
+name: DDP-Week4-ShinyAppandPitch
+title: DDP-Week4-ShinyAppandPitch
+username:
+account: cdmcgowanpoole
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 1355495
+bundleId: 2519274
+url: https://cdmcgowanpoole.shinyapps.io/DDP-Week4-ShinyAppandPitch/
+when: 1571631271.42883
+asMultiple: FALSE
+asStatic: FALSE
+additionalFiles: DDPWk4ShinyApp/server.R|DDPWk4ShinyApp/ui.R|README.txt

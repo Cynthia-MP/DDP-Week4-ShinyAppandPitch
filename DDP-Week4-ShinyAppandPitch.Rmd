@@ -3,6 +3,10 @@ title: "DDP - Week 4 - Course Project - Auto Analysis App Using Shiny"
 author: "Cynthia McGowan Poole"
 date: "10/16/2019"
 output: slidy_presentation
+resource_files:
+- DDPWk4ShinyApp/server.R
+- DDPWk4ShinyApp/ui.R
+- README.txt
 runtime: shiny
 css: complex-css.css
 ---
