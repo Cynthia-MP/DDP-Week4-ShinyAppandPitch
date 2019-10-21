@@ -1,10 +1,10 @@
 ---
-title: "DDP - Week 4 - Course Project - Auto Analysis App Using Shiny"
+title: "DDP - Week 4 Course Project - Auto Analysis App Using Shiny"
 author: "Cynthia McGowan Poole"
 date: "10/16/2019"
 output: slidy_presentation
-css: complex-css.css
 runtime: shiny
+css: complex-css.css
 ---
 
 ```{r setup, include=FALSE}
@@ -56,5 +56,7 @@ https://github.com/Cynthia-MP/DDP-Week4-ShinyAppandPitch/tree/master/DDPWk4Shiny
 Scroll down to be able to see all of the application controls and inputs. 
 ```{r shiny_app}
 library(shiny)
-shinyAppDir(appDir = "DDPWk4ShinyApp", options = list(height = "700px"))
+shinyAppDir(appDir = "DDPWk4ShinyApp"
+            , options = list(height = "700px")
+            )
 ```

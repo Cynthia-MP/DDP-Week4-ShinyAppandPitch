@@ -37,10 +37,7 @@ shinyUI(
                      mainPanel(
                          plotlyOutput('trendPlot', height = "900px")
                      )),
-            tabPanel("ABOUT", 
-                     fluidRow(column(10,
-                                     includeMarkdown("README.md")
-                     )
-                     ))
-        ))
+            tabPanel("ABOUT", fluidRow(column(10,includeMarkdown("README.md"))))
+        )
+    )
 )
